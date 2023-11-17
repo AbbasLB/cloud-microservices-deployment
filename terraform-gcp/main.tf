@@ -9,9 +9,10 @@ terraform {
 
 provider "google" {
   # credentials = file("<NAME>.json")
-  credentials = file("cloud-computing-402605-7feb99606c7c.json")
+  credentials = file(var.credentials)
   # project = "<PROJECT_ID>"
-  project = "cloud-computing-402605"
+  project = var.project_id
+#   project = "cloud-computing-402605"
 
   region = "europe-west6"
   zone   = "europe-west6-a"
@@ -21,7 +22,8 @@ provider "google" {
 
 resource "google_compute_instance" "vm_instance" {
   name         = "load-generator"
-  machine_type = "e2-standard-2"
+  machine_type = var.instance_type
+
 
 
   boot_disk {
@@ -38,8 +40,5 @@ resource "google_compute_instance" "vm_instance" {
 
   metadata_startup_script = file("${path.module}/install_docker.sh")
 
-
-
-  # You can add more configuration options as needed
 
 }
