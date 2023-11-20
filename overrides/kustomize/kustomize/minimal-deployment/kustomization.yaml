@@ -1,0 +1,59 @@
+
+apiVersion: kustomize.config.k8s.io/v1alpha1
+kind: Component
+patches:
+# remove the email Deployment
+- patch: |-
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: emailservice
+    $patch: delete
+
+# remove the email Service
+- patch: |-
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: emailservice
+    $patch: delete
+
+# remove the ad Deployment
+- patch: |-
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: adservice
+    $patch: delete
+
+# remove the ad Service
+- patch: |-
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: adservice
+    $patch: delete
+
+# remove the recommendation Deployment
+- patch: |-
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: recommendationservice
+    $patch: delete
+
+# remove the recommendation Service
+- patch: |-
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: recommendationservice
+    $patch: delete
+    
+# remove the loadgenerator Deployment
+- patch: |-
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: loadgenerator
+    $patch: delete
