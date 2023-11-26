@@ -9,6 +9,6 @@ region_default=$(awk '/variable "region"/, /default/ {if ($1 == "default") {gsub
 # Extract the default value of name
 name_default=$(awk '/variable "name"/, /default/ {if ($1 == "default") {gsub(/"/, "", $3); print $3}}' variables.tf)
 
-container clusters get-credentials $name_default --zone=$region_default --project=$gcp_project_id
+gcloud container clusters get-credentials $name_default --zone=$region_default --project=$gcp_project_id
 
 kubectl get service frontend-external | awk '{print $4}'

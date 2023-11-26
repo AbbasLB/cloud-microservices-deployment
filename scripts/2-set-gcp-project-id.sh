@@ -6,6 +6,8 @@ if [ $# -ne 1 ]; then
 fi
 
 new_project_id="$1"
+
+# Set project id in boutique deployment terraform
 file_path_1="terraform.tfvars" 
 
 if [ ! -f "$file_path_1" ]; then
@@ -16,8 +18,11 @@ fi
 sed -i "s/^gcp_project_id\s*=.*$/gcp_project_id = \"$new_project_id\"/" "$file_path_1"
 
 
+
+
 cd ../../load-generator-deploymnet
 
+# Set project id in load generator terraform
 file_path_2="variables.tf" 
 
 if [ ! -f "$file_path_2" ]; then
@@ -25,7 +30,6 @@ if [ ! -f "$file_path_2" ]; then
     exit 1
 fi
 
-# Update the default value of gcp_project_id in the file
 awk -v new_id="$new_project_id" '
 {
     if ($0 ~ /^variable "gcp_project_id"/) {
