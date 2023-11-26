@@ -16,7 +16,7 @@ fi
 sed -i "s/^gcp_project_id\s*=.*$/gcp_project_id = \"$new_project_id\"/" "$file_path_1"
 
 
-cd "$(dirname "$(realpath "$0")")"/../load-generator-deploymnet
+cd ../../load-generator-deploymnet
 
 file_path_2="variables.tf" 
 
