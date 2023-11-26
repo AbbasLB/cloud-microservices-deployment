@@ -6,13 +6,37 @@ if [ $# -ne 1 ]; then
 fi
 
 new_project_id="$1"
-file_path="terraform.tfvars" 
+file_path_1="terraform.tfvars" 
 
-if [ ! -f "$file_path" ]; then
-    echo "File not found: $file_path"
+if [ ! -f "$file_path_1" ]; then
+    echo "File not found: $file_path_1"
     exit 1
 fi
 
-sed -i "s/^gcp_project_id\s*=.*$/gcp_project_id = \"$new_project_id\"/" "$file_path"
+sed -i "s/^gcp_project_id\s*=.*$/gcp_project_id = \"$new_project_id\"/" "$file_path_1"
+
+
+cd "$(dirname "$(realpath "$0")")"/../load-generator-deploymnet
+
+file_path_2="variables.tf" 
+
+if [ ! -f "$file_path_2" ]; then
+    echo "File not found: $file_path_2"
+    exit 1
+fi
+
+# Update the default value of gcp_project_id in the file
+awk -v new_id="$new_project_id" '
+{
+    if ($0 ~ /^variable "gcp_project_id"/) {
+        in_block = 1;
+    }
+    if (in_block && $0 ~ /default/) {
+        sub(/".*"/, "\"" new_id "\"");
+        in_block = 0;
+    }
+    print $0;
+}' $file_path_2 > temp_file && mv temp_file $file_path_2
+
 
 echo "Project id set: $new_project_id"
