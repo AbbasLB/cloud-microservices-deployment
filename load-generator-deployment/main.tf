@@ -33,7 +33,10 @@ resource "google_compute_instance" "vm_instance" {
     }
   }
 
-  metadata_startup_script = file("${path.module}/install_docker.sh")
-
+  # Generate the script with variables and pass it to the instance
+  metadata_startup_script = templatefile("${path.module}/install_docker.sh", {
+    FRONTEND_ADDR = var.frontend_addr,
+    USERS         = var.users_count,
+  })
 
 }

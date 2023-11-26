@@ -20,7 +20,7 @@ sed -i "s/^gcp_project_id\s*=.*$/gcp_project_id = \"$new_project_id\"/" "$file_p
 
 
 
-cd ../../load-generator-deploymnet
+cd ../../load-generator-deployment
 
 # Set project id in load generator terraform
 file_path_2="variables.tf" 

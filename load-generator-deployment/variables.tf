@@ -1,4 +1,15 @@
 
+variable "frontend_addr" {
+  type        = string
+  description = "Frontend Address"
+}
+
+variable "users_count" {
+  type        = number
+  description = "Number of Users"
+  default = 20
+}
+
 variable "gcp_project_id" {
   type        = string
   description = "The GCP project ID to apply this config to"
