@@ -22,5 +22,5 @@ echo "Frontend Address: $frontend_addr"
 terraform init
 
 # Apply the values to Terraform using the -var flag
-terraform apply -var="frontend_addr=${frontend_addr}" -var="vm_name=${vm_name}" -var="users_count=${users_count}"
+terraform apply -var="frontend_addr=${frontend_addr}" -var="name=${vm_name}" -var="users_count=${users_count}"
 
