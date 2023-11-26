@@ -4,6 +4,11 @@ variable "frontend_addr" {
   description = "Frontend Address"
 }
 
+variable "instances_count" {
+  type        = number
+  description = "Number of Instances"
+}
+
 variable "users_count" {
   type        = number
   description = "Number of Users"
