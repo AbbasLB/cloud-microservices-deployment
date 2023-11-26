@@ -1,4 +1,4 @@
-cd "$(dirname "$(realpath "$0")")"/../../microservices-demo/terraform
+cd "$(dirname "$(realpath "$0")")"/../boutique-deployment/terraform
 
 if [ $# -ne 1 ]; then
     echo "Usage: $0 <new_project_id>"
