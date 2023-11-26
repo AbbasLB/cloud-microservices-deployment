@@ -13,6 +13,6 @@ cd ./microservices-demo/src/loadgenerator/
 sudo docker build -t load-generator-image -f Dockerfile .
 
 # Run the container with specified arguments
-sudo docker run -P -d -e FRONTEND_ADDR="${FRONTEND_ADDR}" -e USERS="${USERS}" load-generator-image
+sudo docker run -P -d -e FRONTEND_ADDR="${FRONTEND_ADDR}" -e USERS="${USERS}" -e LOCUST_CSV=results load-generator-image
 
 #sudo docker logs --follow $(sudo docker ps -lq)
