@@ -15,15 +15,15 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: orderlogservice
+  name: logservice
 spec:
   selector:
     matchLabels:
-      app: orderlogservice
+      app: logservice
   template:
     metadata:
       labels:
-        app: orderlogservice
+        app: logservice
     spec:
       serviceAccountName: default
       terminationGracePeriodSeconds: 5
@@ -68,11 +68,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: orderlogservice
+  name: logservice
 spec:
   type: ClusterIP
   selector:
-    app: orderlogservice
+    app: logservice
   ports:
   - name: grpc
     port: 5000
