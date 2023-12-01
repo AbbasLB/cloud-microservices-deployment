@@ -41,7 +41,7 @@ spec:
               - ALL
           privileged: false
           readOnlyRootFilesystem: true
-        image: ghcr.io/youssef-itanii/orderlogservice:main
+        image: ghcr.io/youssef-itanii/logservice:main
         ports:
         - containerPort: 03138
         env:
