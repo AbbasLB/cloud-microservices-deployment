@@ -64,6 +64,8 @@ spec:
             value: "currencyservice:7000"
           - name: CART_SERVICE_ADDR
             value: "cartservice:7070"
+          - name: LOG_SERVICE_ADDR
+            value: "logservice:03138"
           resources:
             requests:
               cpu: 100m
