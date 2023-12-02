@@ -41,22 +41,22 @@ spec:
               - ALL
           privileged: false
           readOnlyRootFilesystem: true
-        image: ghcr.io/youssef-itanii/logservice:main
+        image: ghcr.io/youssef-itanii/logservice:main@sha256:b66d91a4ebd7af07a1daf78c42d31060abd750e4d7bf2a67280bd9af83b3813a 
         ports:
         - containerPort: 03138
         env:
         - name: PORT
-          value: "03138"
+          value: "3138"
         - name: DISABLE_PROFILER
           value: "1"
         readinessProbe:
           periodSeconds: 5
           grpc:
-            port: 03138
+            port: 3138
         livenessProbe:
           periodSeconds: 5
           grpc:
-            port: 03138
+            port: 3138
         resources:
           requests:
             cpu: 100m
@@ -75,5 +75,5 @@ spec:
     app: logservice
   ports:
   - name: grpc
-    port: 5000
-    targetPort: 03138
+    port: 3138
+    targetPort: 3138

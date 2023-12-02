@@ -40,7 +40,7 @@ spec:
                 - ALL
             privileged: false
             readOnlyRootFilesystem: true
-          image: ghcr.io/youssef-itanii/checkoutservice:main
+          image: ghcr.io/youssef-itanii/checkoutservice:main@sha256:958ed79b5f2415e295567e6572af6f9929c9ee3bb22f0d5373590737f9934c20
           ports:
           - containerPort: 5050
           readinessProbe:
@@ -65,7 +65,7 @@ spec:
           - name: CART_SERVICE_ADDR
             value: "cartservice:7070"
           - name: LOG_SERVICE_ADDR
-            value: "logservice:03138"
+            value: "logservice:3138"
           resources:
             requests:
               cpu: 100m
