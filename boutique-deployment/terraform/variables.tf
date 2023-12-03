@@ -29,6 +29,12 @@ variable "region" {
   default     = "europe-west6"
 }
 
+variable "zone" {
+  type        = string
+  description = "Zone of the new GKE cluster"
+  default     = "europe-west6-a"
+}
+
 variable "namespace" {
   type        = string
   description = "Kubernetes Namespace in which the Online Boutique resources are to be deployed"

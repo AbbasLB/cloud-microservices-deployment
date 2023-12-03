@@ -1,3 +1,5 @@
 cd "$(dirname "$(realpath "$0")")"/..
 
-kubectl delete --ignore-not-found=true -f monitoring-deployment/setup -f monitoring-deployment/prometheus -f monitoring-deployment/node-exporter -f monitoring-deployment/grafana -f monitoring-deployment/kube-state-metrics
+./monitoring-deployment/autopilot-deployment/destroy.sh
+./monitoring-deployment/standard-deployment/destroy.sh
+./monitoring-deployment/standard-kube-prometheus-deployment/destroy.sh

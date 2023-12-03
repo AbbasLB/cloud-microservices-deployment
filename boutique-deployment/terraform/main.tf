@@ -38,25 +38,21 @@ module "enable_google_apis" {
 
 # Create GKE cluster
 resource "google_container_cluster" "my_cluster" {
-
   name     = var.name
-  location = var.region
-
-  # Enabling autopilot for this cluster
-  enable_autopilot = true
-
-  # Setting an empty ip_allocation_policy to allow autopilot cluster to spin up correctly
-  ip_allocation_policy {
+  location = var.zone
+  deletion_protection      = false
+  
+  initial_node_count = 4
+  node_config {
+    disk_size_gb = 40
+    machine_type = "e2-standard-2"
   }
-
-  # Avoid setting deletion_protection to false
-  # until you're ready (and certain you want) to destroy the cluster.
-  # deletion_protection = false
 
   depends_on = [
     module.enable_google_apis
   ]
 }
+
 
 # Get credentials for cluster
 module "gcloud" {
@@ -69,7 +65,7 @@ module "gcloud" {
   create_cmd_entrypoint = "gcloud"
   # Module does not support explicit dependency
   # Enforce implicit dependency through use of local variable
-  create_cmd_body = "container clusters get-credentials ${local.cluster_name} --zone=${var.region} --project=${var.gcp_project_id}"
+  create_cmd_body = "container clusters get-credentials ${local.cluster_name} --zone=${var.zone} --project=${var.gcp_project_id}"
 }
 
 # Apply YAML kubernetes-manifest configurations
