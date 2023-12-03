@@ -4,3 +4,4 @@ gcloud services enable monitoring.googleapis.com
 gcloud services enable cloudtrace.googleapis.com
 gcloud services enable cloudprofiler.googleapis.com
 gcloud services enable cloudresourcemanager.googleapis.com
+gcloud services enable clouddeploy.googleapis.com

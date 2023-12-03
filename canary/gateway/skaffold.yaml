@@ -1,0 +1,7 @@
+apiVersion: skaffold/v3alpha1
+kind: Config
+manifests:
+  rawYaml:
+  - frontend-gateway.yaml
+deploy:
+  kubectl: {}
