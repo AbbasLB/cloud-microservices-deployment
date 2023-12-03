@@ -2,10 +2,10 @@ apiVersion: deploy.cloud.google.com/v1
 kind: DeliveryPipeline
 metadata:
   name: canary-cloud-deployment
-description: main application pipeline
+description: frontend pipeline
 serialPipeline:
   stages:
-  - targetId: prod
+  - targetId: online-boutique-cluster
     profiles: []
     strategy:
       canary:
@@ -22,7 +22,7 @@ serialPipeline:
 apiVersion: deploy.cloud.google.com/v1
 kind: Target
 metadata:
-  name: prod
-description: prod GKE cluster
+  name: online-boutique-cluster
+description: Online Boutique GKE cluster
 gke:
- cluster: projects/cloud-computing-lab-1-402606/locations/europe-west6-a/clusters/online-boutique
+ cluster: projects/GOOGLE_CLOUD_PROJECT_ID/locations/europe-west6-a/clusters/online-boutique
