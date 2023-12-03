@@ -2,8 +2,8 @@
 cd "$(dirname "$(realpath "$0")")"/../boutique-deployment/terraform
 gcp_project_id=$(grep 'gcp_project_id' terraform.tfvars | sed 's/.*= *//; s/"//g')
 
-cd "$(dirname "$(realpath "$0")")"/../canary/gateway
+cd ../../canary/gateway
 
-./create-release.sh frontend-release-v2 $gcp_project_id gcr.io/cloud-computing-lab-1-402606/frontend:v2
+./create-release.sh "frontend-release-v2" "$gcp_project_id" "gcr.io/cloud-computing-lab-1-402606/frontend:v2"
 
 echo "Visit https://console.cloud.google.com/deploy/delivery-pipelines to advance the rollout"

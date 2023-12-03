@@ -25,4 +25,4 @@ metadata:
   name: online-boutique-cluster
 description: Online Boutique GKE cluster
 gke:
- cluster: projects/GOOGLE_CLOUD_PROJECT_ID/locations/europe-west6-a/clusters/online-boutique
+ cluster: projects/cloud-computing-lab-1-402606/locations/europe-west6-a/clusters/online-boutique
