@@ -1,7 +1,14 @@
-apiVersion: skaffold/v3alpha1
+apiVersion: skaffold/v4beta4
 kind: Config
 manifests:
   rawYaml:
   - frontend-gateway.yaml
 deploy:
   kubectl: {}
+verify:
+- name: frontend-latency-test
+  container:
+    name: frontend-latency-test
+    image: gcr.io/cloud-computing-lab-1-402606/frontend-latency-test:v1
+  executionMode:
+    kubernetesCluster: {}

@@ -15,9 +15,16 @@ serialPipeline:
               httpRoute: "frontend-httproute"
               service: "frontend"
               deployment: "frontend"
-        canaryDeployment:
-          percentages: [25]
-          verify: false
+        customCanaryDeployment:
+          phaseConfigs: 
+          - phaseId: "canary-25"
+            percentage: 25
+            profiles: []
+            verify: true
+          - phaseId: "stable"
+            percentage: 100
+            profiles: []
+            verify: false
 ---
 apiVersion: deploy.cloud.google.com/v1
 kind: Target

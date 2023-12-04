@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-latency-test
+spec:
+  selector:
+    matchLabels:
+      app: frontend-latency-test
+  template:
+    metadata:
+      labels:
+        app: frontend-latency-test
+    spec:
+      containers:
+        - name: frontend-latency-test
+          image: gcr.io/cloud-computing-lab-1-402606/frontend-latency-test:v1
