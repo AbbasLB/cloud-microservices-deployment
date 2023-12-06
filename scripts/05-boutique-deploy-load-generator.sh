@@ -9,7 +9,7 @@ fi
 # Assign provided arguments to variables
 instance_count="$1"
 users_count="$2"
-frontend_addr=$(bash ../scripts/4-boutique-get-ip-address.sh | tail -n 1)
+frontend_addr=$(bash ../scripts/04-boutique-get-frontend-ip-address.sh | tail -n 1)
 
 # Print the instance and user count being used
 echo "Creating $instance_count instances targeting $frontend_addr ..."
