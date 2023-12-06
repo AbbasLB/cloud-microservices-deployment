@@ -18,7 +18,7 @@ variable "users_count" {
 variable "gcp_project_id" {
   type        = string
   description = "The GCP project ID to apply this config to"
-  default     = "cloud-computing-402605"
+  default     = "<project_id_here>"
 }
 
 variable "name" {
