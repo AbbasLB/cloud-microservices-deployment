@@ -8,13 +8,13 @@
 • Identified bottlenecking services
 • Created canary releases deployment pipelines
 
-[Documentation] (Report.pdf)
+[Documentation](Report.pdf)
 
 We used Google Cloud Platform repo for the getting the microservices codes and some the deployment configs and the 2 other repositories for the monitoring deployments:
 
-https://github.com/GoogleCloudPlatform/microservices-demo
-https://github.com/devopscube
-https://github.com/bibinwilson
+- https://github.com/GoogleCloudPlatform/microservices-demo
+- https://github.com/devopscube
+- https://github.com/bibinwilson
 ---
 ##### Note: The following project has been implemented and deployed using Google Cloud shell.
 We did not deploy anything locally. As far as we know, the system requires the following to be installed:
