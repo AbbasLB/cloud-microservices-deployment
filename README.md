@@ -1,4 +1,22 @@
- ##### Note: The following project has been implemented and deployed using Google Cloud shell.
+# Cloud Microservices Deployment
+
+• Deploy a micro-service application in a Kubernetes cluster
+• Deploy in Google Kubernetes Engine(GKE) on Google Cloud Platform(GCP)
+• Automated provisioning and destruction of the resources using Terraform
+• Deploy Prometheus and Grafana for Monitoring
+• Automated run and provisioning of load generators hosted on multiple machines
+• Identified bottlenecking services
+• Created canary releases deployment pipelines
+
+[Documentation] (Report.pdf)
+
+We used Google Cloud Platform repo for the getting the microservices codes and some the deployment configs and the 2 other repositories for the monitoring deployments:
+
+https://github.com/GoogleCloudPlatform/microservices-demo
+https://github.com/devopscube
+https://github.com/bibinwilson
+---
+##### Note: The following project has been implemented and deployed using Google Cloud shell.
 We did not deploy anything locally. As far as we know, the system requires the following to be installed:
 - git
 - Terrafrom
